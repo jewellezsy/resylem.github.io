@@ -28,10 +28,7 @@
             text-align: center;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
             backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
+            /* Removed position: fixed; top: 0; z-index: 1000; to place it below the header */
         }
         nav a {
             color: white;
@@ -67,7 +64,7 @@
             text-align: center;
             padding: 60px 20px 40px; /* Reduced from 80px 20px 60px */
             position: relative;
-            margin-top: 80px; /* Increased from 60px to prevent overlap with fixed nav */
+            /* Removed margin-top since nav is no longer fixed */
         }
         header::before {
             content: '';
@@ -208,9 +205,6 @@
             font-size: 1.2em; /* Reduced from 1.3em */
         }
         @media (max-width: 768px) {
-            header {
-                margin-top: 140px; /* Increased to account for taller nav on mobile */
-            }
             header h1 {
                 font-size: 2em; /* Reduced */
             }
@@ -233,15 +227,15 @@
     </style>
 </head>
 <body>
+    <header>
+        <h1><i class="fas fa-chart-line icon"></i>My Financial Journey Begins</h1>
+        <img src="resmey.jpg" alt="Hero Image" class="hero-image">
+    </header>
     <nav>
         <a href="#introduction">Introduction</a>
         <a href="#current-understanding">Current Understanding</a>
         <a href="#financial-goals">Financial Goals</a>
     </nav>
-    <header>
-        <h1><i class="fas fa-chart-line icon"></i>My Financial Journey Begins</h1>
-        <img src="resmey.jpg" alt="Hero Image" class="hero-image">
-    </header>
 
     <section id="introduction">
         <h2><i class="fas fa-lightbulb icon"></i>Introduction: Why I Want to Improve My Financial Literacy</h2>
