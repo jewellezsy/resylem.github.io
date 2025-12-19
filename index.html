@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Financial Journey Begins</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            animation: fadeIn 1.2s ease-in;
+            overflow-x: hidden;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        nav {
+            background: rgba(44, 62, 80, 0.9);
+            color: white;
+            padding: 15px 0; /* Reduced from 20px */
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px; /* Reduced from 25px */
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1em; /* Reduced from 1.1em */
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        nav a:hover {
+            color: #f39c12;
+            transform: scale(1.05);
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background-color: #f39c12;
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+        nav a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px 40px; /* Reduced from 80px 20px 60px */
+            position: relative;
+            margin-top: 60px; /* Adjusted for smaller nav padding */
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.1;
+        }
+        header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5em; /* Reduced from 3.2em */
+            margin: 0;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+        header .hero-image {
+            width: 100%;
+            max-width: 280px; /* Reduced from 350px */
+            height: auto;
+            margin-top: 20px; /* Reduced from 30px */
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        header .hero-image:hover {
+            transform: scale(1.05);
+        }
+        section {
+            max-width: 900px; /* Reduced from 1100px */
+            margin: 40px auto; /* Reduced from 50px */
+            padding: 35px; /* Reduced from 50px */
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px; /* Reduced from 25px */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            border-left: 5px solid #f39c12; /* Reduced from 6px */
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+        section:hover {
+            transform: translateY(-8px); /* Reduced from -10px */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        section::before {
+            content: '';
+            position: absolute;
+            top: -8px; /* Reduced from -10px */
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            background: linear-gradient(135deg, #f39c12, #e74c3c);
+            border-radius: 25px; /* Adjusted */
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        section:hover::before {
+            opacity: 0.1;
+        }
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            color: #2c3e50;
+            border-bottom: 4px solid #f39c12; /* Reduced from 5px */
+            padding-bottom: 15px; /* Reduced from 20px */
+            font-size: 1.6em; /* Reduced from 2em */
+            font-weight: 700;
+            margin-bottom: 20px; /* Reduced from 30px */
+        }
+        h3 {
+            color: #27ae60;
+            margin-top: 20px; /* Reduced from 30px */
+            font-size: 1.3em; /* Reduced from 1.5em */
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        p {
+            font-size: 1em; /* Reduced from 1.15em */
+            margin-bottom: 20px; /* Reduced from 25px */
+            color: #555;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            margin: 15px 0; /* Reduced from 20px */
+            padding: 12px 15px 12px 35px; /* Reduced padding */
+            position: relative;
+            font-size: 1em; /* Reduced from 1.1em */
+            background: #f9f9f9;
+            border-radius: 8px; /* Reduced from 10px */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: background 0.3s ease;
+        }
+        ul li:hover {
+            background: #ecf0f1;
+        }
+        ul li::before {
+            content: '\f058'; /* Check icon from Font Awesome */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: #27ae60;
+            position: absolute;
+            left: 12px; /* Adjusted */
+            top: 14px; /* Adjusted */
+            font-size: 1.1em; /* Reduced from 1.2em */
+        }
+        footer {
+            text-align: center;
+            padding: 20px; /* Reduced from 30px */
+            background: white;
+            color: #333;
+            font-size: 1em; /* Reduced from 1.1em */
+            font-weight: 600;
+            position: relative;
+            border-top: 1px solid #eee;
+        }
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="footerGrain" width="100" height="100" patternUnits="userSpaceOnUse"><rect width="100" height="100" fill="%23cccccc" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23footerGrain)"/></svg>');
+        }
+        .icon {
+            margin-right: 12px; /* Reduced from 15px */
+            color: #f39c12;
+            font-size: 1.2em; /* Reduced from 1.3em */
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em; /* Reduced */
+            }
+            section {
+                padding: 25px; /* Reduced */
+                margin: 25px auto; /* Reduced */
+            }
+            nav a {
+                display: block;
+                margin: 10px 0; /* Reduced */
+            }
+            ul li {
+                padding: 8px 12px 8px 30px; /* Reduced */
+            }
+            ul li::before {
+                left: 10px; /* Adjusted */
+                top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#introduction">Introduction</a>
+        <a href="#current-understanding">Current Understanding</a>
+        <a href="#financial-goals">Financial Goals</a>
+    </nav>
+    <header>
+        <h1><i class="fas fa-chart-line icon"></i>My Financial Journey Begins</h1>
+        <img src="resmey.jpg" alt="Hero Image" class="hero-image">
+    </header>
+
+    <section id="introduction">
+        <h2><i class="fas fa-lightbulb icon"></i>Introduction: Why I Want to Improve My Financial Literacy</h2>
+        <p>In today’s world, having a good understanding of money is very important. I want to improve my financial literacy so I can better manage my finances. Learning about budgeting, saving, and investing will help me make smarter financial decisions. It will also help me avoid unnecessary debt and financial stress. By being financially literate, I can plan better for my future and achieve my goals.</p>
+    </section>
+
+    <section id="current-understanding">
+        <h2><i class="fas fa-brain icon"></i>Current Understanding: What I Know About Budgeting, Saving, and Investing</h2>
+        <p>I have a basic understanding of budgeting, saving, and investing. I know that budgeting helps me track my income and control my expenses. Saving is important for emergencies and future goals, such as education or personal needs. I understand that investing is a way to grow money over time. However, I am still learning about different investment options and the risks involved. I want to improve my knowledge so I can make better financial decisions.</p>
+    </section>
+
+    <section id="financial-goals">
+        <h2><i class="fas fa-target icon"></i>Financial Goals</h2>
+        <h3><i class="fas fa-clock icon"></i>Short-Term Goals</h3>
+        <ul>
+            <li><strong>Create and follow a monthly budget to manage expenses.</strong></li>
+            <li><strong>Save a portion of my income regularly for emergencies.</strong></li>
+            <li><strong>Learn to control daily spending and avoid unnecessary expenses.</strong></li>
+        </ul>
+        <h3><i class="fas fa-calendar-alt icon"></i>Long-Term Goals</h3>
+        <ul>
+            <li><strong>Invest in assets that grow over time to build wealth.</strong></li>
+            <li><strong>Save for major life events like higher education or starting a business.</strong></li>
+            <li><strong>Achieve financial independence and long-term security.</strong></li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 My Financial Journey. Created as part of a learning activity. <i class="fas fa-heart"></i></p>
+    </footer>
+</body>
+</html>
